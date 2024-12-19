@@ -1,0 +1,36 @@
+{% extends "base.html"%}
+{% load static %}
+
+{% block stylesheet%}
+<link rel="stylesheet" href="{%static 'core/css/style.login.css' %}" />
+{%endblock stylesheet%}
+
+
+{% block title%}
+    Login
+{%endblock title%}
+
+{% block body %}
+<div class="outside">
+    <div id="container">
+        <div class="logo-image"><img src="{% static 'core/images/logo.png' %}" alt="logo"/></div>
+        <div id="university-name"> Pulchowk Campus<br/> Project Management</div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            {% if form.non_field.errors %}
+                {% for error in form.non_field.errors %}
+                    {{ error }}
+                {% endfor %}
+            {% endif %}
+    
+            <button type="submit">Login</button>
+        </form>
+        <div id="login-signup">
+            <div>Don't have an account.</div>
+            <div><a href="{% url 'signup' %}">Sign Up</a></div>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block stylesheet%}
+    <link rel="stylesheet" href="{% static 'core/css/style.landing_page.css' %}" />
+{%endblock stylesheet%}
+
+{% block title %}
+    Project Management | Pulchowk Campus
+{% endblock title %}
+
+{% block body %}
+    {% include "common/unauthorizer/navbar.html" %}
+
+    <section id="hero">
+        <div>Streamline Your Project Journey with Our Interactive Web Application</div>
+        <div><img src="{% static 'core/images/hero.png' %}" alt="Hero section image"></div>
+    </section>
+
+    {% include "common/unauthorizer/footer.html" %}
+{% endblock body %}
+
+

@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="{% static 'core/css/style.signup.css' %}" />
+{% endblock stylesheet %}
+
+{% block title %}
+    Signup 
+{% endblock title %}
+
+{% block body %}
+<div class="outside">
+    <div id="container">
+        <div class="logo-image"><img src="{% static 'core/images/logo.png' %}" alt="logo"/></div>
+        <div id="university-name">Pulchowk Campus<br/> Project Management</div>
+        <form action="" method="post" id="signup-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label for="{{ form.first_name.id_for_label }}">First Name:</label>
+                {{ form.first_name }}
+                {% for error in form.first_name.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.last_name.id_for_label }}">Last Name:</label>
+                {{ form.last_name }}
+                {% for error in form.last_name.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email:</label>
+                {{ form.email }}
+                {% for error in form.email.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.user_type.id_for_label }}">User Type:</label>
+                {{ form.user_type }}
+                {% for error in form.user_type.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Password:</label>
+                {{ form.password1 }}
+                {% for error in form.password1.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">Confirm Password:</label>
+                {{ form.password2 }}
+                {% for error in form.password2.errors %}
+                    <span class="error">{{ error }}</span>
+                {% endfor %}
+            </div>
+            
+            {% if form.non_field_errors %}
+                <div class="form-group">
+                    {% for error in form.non_field_errors %}
+                        <span class="error">{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        
+            <button type="submit">Sign Up</button>
+        </form> 
+        <div id="login-signup">
+            <div>Already have an account.</div>
+            <div><a href="{% url 'login' %}">Login</a></div>
+
+        </div>
+    </div>
+</div>
+{% endblock body %}
