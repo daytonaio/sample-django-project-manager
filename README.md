@@ -39,7 +39,7 @@ https://github.com/user-attachments/assets/dc44dc16-8f2f-48dc-8d5e-23eb85cad44e
 1. Install Daytona using the [guide](https://www.daytona.io/docs/installation/installation/).
 2. Create the workspace:
    ```
-   daytona create https://github.com/SusheelThapa/Project-Management
+   daytona create https://github.com/daytonaio/sample-django-project-manager
    ```
 3. Start the application:
    ```
