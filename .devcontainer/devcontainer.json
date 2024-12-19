@@ -1,0 +1,25 @@
+{
+  "name": "Project Management Django Development",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12",
+  "features": {
+    "python": "3.10"
+  },
+  "forwardPorts": [8000],
+  "workspaceFolder": "/workspace/Project-Management",  // Adjust this path as necessary
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.linting.enabled": true,
+        "python.linting.pylintEnabled": true,
+        "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+        "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+        "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+        "python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+        "python.linting.flake8Path": "/usr/local/py-utils/bin/flake8"
+      },
+      "extensions": ["ms-python.python", "ms-python.vscode-pylance"]
+    }
+  },
+  "postCreateCommand": "pip install -r requirements.txt && python manage.py migrate"
+}

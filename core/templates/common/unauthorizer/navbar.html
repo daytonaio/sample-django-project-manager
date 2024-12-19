@@ -1,0 +1,10 @@
+{% load static %}
+
+<nav id="navbar">
+    <div><img src="{% static 'core/images/logo.png' %}" alt="Logo" id="logo"></div>
+
+    <div>
+        <button id="login-button"><a href="{% url 'login' %}">Login</a></button>
+        <button id="signup-button"><a href="{% url 'signup' %}">Signup</a></button>
+    </div>
+</nav>
